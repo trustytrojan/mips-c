@@ -4,6 +4,9 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+#include "opcodes.h"
+#include "registers.h"
+
 #define OP_LENGTH 8
 #define ARG_LENGTH 32
 

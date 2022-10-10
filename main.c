@@ -12,6 +12,10 @@ int main(int argc, char* argv[]) {
 
   for(int i = 0; i < src_file->line_count; ++i)
     printf("%d: \"%s\"\n", i+1, src_file->lines[i]);
+  
+  MIPS_Program* program = new_MIPS_Program(src_file);
+
+  
 
   free_MIPS_Source_File(src_file);
 

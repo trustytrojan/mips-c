@@ -1,4 +1,5 @@
-#include "mips-c.h"
+#ifndef MIPS_REGISTERS
+#define MIPS_REGISTERS
 
 const char* registers[] = {
   "zero",
@@ -21,3 +22,5 @@ int get_register_number(const char* s) {
       return i;
   return -1;
 }
+
+#endif

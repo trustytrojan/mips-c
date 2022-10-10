@@ -9,15 +9,8 @@
 #include "source-file.h"
 #include "instruction.h"
 #include "utils.h"
-
-
-/* opcodes.c */
-
-int get_opcode(const char* s);
-
-
-/* registers.c */
-
-int get_register_number(const char* s);
+#include "program.h"
+#include "registers.h"
+#include "opcodes.h"
 
 #endif

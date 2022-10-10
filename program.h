@@ -1,6 +1,7 @@
 #ifndef MIPS_PROGRAM
 #define MIPS_PROGRAM
 
+#include "source-file.h"
 #include "instruction.h"
 
 typedef union {
