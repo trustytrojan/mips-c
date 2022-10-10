@@ -1,4 +1,4 @@
-#include "mips-c.h"
+#include "instruction.h"
 
 bool validate_instruction(MIPS_Instruction* instr) {
   bool is_valid = true;
@@ -32,7 +32,7 @@ MIPS_Instruction* read_instruction_from(FILE* stream) {
     print_instruction(instr);
     fprintf(stderr, "Please see the above errors to fix your syntax.\n");
   }
-  instr->_op = get_operation_number(instr->op);
+  instr->_op = get_opcode(instr->op);
   instr->_arg1 = get_register_number(instr->arg1);
   instr->_arg2 = get_register_number(instr->arg2);
   instr->_arg3 = get_register_number(instr->arg3);

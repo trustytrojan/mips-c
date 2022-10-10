@@ -1,12 +1,22 @@
-#include "mips-c.h"
+#include "mips.h"
 
 int main(int argc, char* argv[]) {
   if(argc < 2) {
-    fprintf(stderr, "Usage: %s <file>\n");
+    fprintf(stderr, "Usage: %s <file>\n", argv[0]);
     return 1;
   }
 
-  MIPS_Program* program = parse_mips_file(argv[2]);
-  MIPS_Program_print(program);
+  char* filename = argv[1];
 
+  MIPS_Source_File* src_file = new_MIPS_Source_File(filename);
+
+  for(int i = 0; i < src_file->line_count; ++i)
+    printf("%d: \"%s\"\n", i+1, src_file->lines[i]);
+
+  free_MIPS_Source_File(src_file);
+
+  return 0;
+
+  // MIPS_Program* program = parse_mips_file(filename);
+  // MIPS_Program_print(program);
 }
