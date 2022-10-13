@@ -1,10 +1,7 @@
 #ifndef MIPS
 #define MIPS
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdbool.h>
+// meta-header to include all other headers
 
 #include "source-file.h"
 #include "instruction.h"

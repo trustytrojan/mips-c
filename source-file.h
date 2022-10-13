@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <string.h>
 
+#include "utils.h"
+
 typedef struct {
   int line_count;
   char** lines;

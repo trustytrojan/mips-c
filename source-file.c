@@ -5,12 +5,12 @@ MIPS_Source_File* new_MIPS_Source_File(const char* filename) {
   FILE* file = fopen(filename, "r");
   for(char c = fgetc(file); c != EOF; c = fgetc(file))
     if(c == '\n') ++line_count;
-  printf("line_count: %d\n", line_count);
   char** const lines = malloc(line_count*sizeof(char*));
   freopen(filename, "r", file);
   char line[30];
   for(int i = 0; i < line_count; ++i) {
     fgets(line, 30, file);
+    trim_whitespace(line);
     const int len = strlen(line);
     if(len == 0) continue;
     if(line[len-1] == '\n') {
@@ -35,4 +35,3 @@ void free_MIPS_Source_File(MIPS_Source_File* src_file) {
   free(src_file->lines);
   free(src_file);
 }
-

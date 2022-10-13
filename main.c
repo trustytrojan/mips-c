@@ -6,6 +6,8 @@ int main(int argc, char* argv[]) {
     return 1;
   }
 
+  bool error_occurred = false;
+
   char* filename = argv[1];
 
   MIPS_Source_File* src_file = new_MIPS_Source_File(filename);
@@ -15,12 +17,19 @@ int main(int argc, char* argv[]) {
   
   MIPS_Program* program = new_MIPS_Program(src_file);
 
+  if(!program) {
+    fprintf(stderr, "An error occurred when creating the program. Please see above for details.");
+    error_occurred = true;
+  }
+
   
+
+  free_MIPS_Program(program);
 
   free_MIPS_Source_File(src_file);
 
-  return 0;
-
-  // MIPS_Program* program = parse_mips_file(filename);
-  // MIPS_Program_print(program);
+  if(error_occurred)
+    return 1;
+  else
+    return 0;
 }
