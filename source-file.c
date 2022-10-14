@@ -7,19 +7,19 @@ MIPS_Source_File* new_MIPS_Source_File(const char* filename) {
     if(c == '\n') ++line_count;
   char** const lines = malloc(line_count*sizeof(char*));
   freopen(filename, "r", file);
+  int label_count = 0;
+  int data_label_count = 0;
   char line[30];
   for(int i = 0; i < line_count; ++i) {
     fgets(line, 30, file);
     trim_whitespace(line);
-    const int len = strlen(line);
+    int len = strlen(line);
     if(len == 0) continue;
-    if(line[len-1] == '\n') {
-      lines[i] = malloc(len);
-      strncpy(lines[i], line, len-1);
-    } else {
-      lines[i] = malloc(len+1);
-      strcpy(lines[i], line);
-    }
+    if(line[len-1] == '\n')
+      line[len-1] == '\0';
+    len = strlen(line);
+    lines[i] = malloc(len);
+    strcpy(lines[i], line);
   }
   fclose(file);
   MIPS_Source_File* src_file = malloc(sizeof(MIPS_Source_File));

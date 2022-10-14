@@ -1,13 +1,12 @@
 #ifndef MIPS_SOURCE_FILE
 #define MIPS_SOURCE_FILE
 
-#include <stdio.h>
-#include <string.h>
-
-#include "utils.h"
+#include "mips.h"
 
 typedef struct {
   int line_count;
+  int label_count;
+  int data_label_count;
   char** lines;
 } MIPS_Source_File;
 

@@ -1,8 +1,7 @@
 #ifndef MIPS_PROGRAM
 #define MIPS_PROGRAM
 
-#include "source-file.h"
-#include "instruction.h"
+#include "mips.h"
 
 typedef union {
   char* ascii_z;
@@ -19,10 +18,7 @@ typedef struct MIPS_Static_Data {
   MIPS_Static_Data_Value value;
 } MIPS_Static_Data;
 
-typedef struct {
-  char* name;
-  int index;
-} MIPS_Label;
+
 
 typedef struct {
   MIPS_Static_Data* data_labels;
@@ -33,7 +29,7 @@ typedef struct {
   int instruction_count;
 } MIPS_Program;
 
-MIPS_Program* new_MIPS_Program(MIPS_Source_File* src_file);
+MIPS_Program* new_MIPS_Program(const char* filename);
 
 void free_MIPS_Program(MIPS_Program* program);
 

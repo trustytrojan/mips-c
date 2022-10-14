@@ -1,7 +1,7 @@
 #ifndef MIPS_OPCODES
 #define MIPS_OPCODES
 
-#include <string.h>
+#include "mips.h"
 
 const char* opcodes[] = {
   "add", "addi", "addiu", "addu",

@@ -21,6 +21,13 @@ bool validate_instruction(MIPS_Instruction* instr) {
   return is_valid;
 }
 
+MIPS_Instruction* parse_instruction(const char* s) {
+  const int n_tokens = num_tokens(s, " ");
+  char* tokens[n_tokens];
+  strsplit(s, " ", tokens);
+  
+}
+
 MIPS_Instruction* read_instruction_from(FILE* stream) {
   MIPS_Instruction* instr = new_MIPS_Instruction();
   fscanf(stream, "%s %s %s %s", instr->op, instr->arg1, instr->arg2, instr->arg3);

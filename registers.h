@@ -1,6 +1,8 @@
 #ifndef MIPS_REGISTERS
 #define MIPS_REGISTERS
 
+#include "mips.h"
+
 const char* registers[] = {
   "zero",
   "at",
