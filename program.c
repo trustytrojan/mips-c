@@ -1,3 +1,8 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "utils.h"
+#include "source-file.h"
 #include "program.h"
 
 // this will free src_file
@@ -63,7 +68,7 @@ MIPS_Program* new_MIPS_Program(const char* filename) {
       const int _len = strlen(_line);
       if(_line[_len-1] == ':')
         if(in_data_section) {
-          data_labels.
+          //data_labels.
           ++dli;
         } else {
           labels[li].line_no = i;

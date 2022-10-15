@@ -1,7 +1,8 @@
 #ifndef MIPS_PROGRAM
 #define MIPS_PROGRAM
 
-#include "mips.h"
+#include "label.h"
+#include "instruction.h"
 
 typedef union {
   char* ascii_z;
@@ -17,8 +18,6 @@ typedef struct MIPS_Static_Data {
   MIPS_Static_Data_Value_Type type;
   MIPS_Static_Data_Value value;
 } MIPS_Static_Data;
-
-
 
 typedef struct {
   MIPS_Static_Data* data_labels;

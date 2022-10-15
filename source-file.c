@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "utils.h"
 #include "source-file.h"
 
 MIPS_Source_File* new_MIPS_Source_File(const char* filename) {
@@ -15,9 +19,6 @@ MIPS_Source_File* new_MIPS_Source_File(const char* filename) {
     trim_whitespace(line);
     int len = strlen(line);
     if(len == 0) continue;
-    if(line[len-1] == '\n')
-      line[len-1] == '\0';
-    len = strlen(line);
     lines[i] = malloc(len);
     strcpy(lines[i], line);
   }
@@ -26,6 +27,11 @@ MIPS_Source_File* new_MIPS_Source_File(const char* filename) {
   src_file->line_count = line_count;
   src_file->lines = lines;
   return src_file;
+}
+
+void print_MIPS_Source_File(MIPS_Source_File* src_file) {
+  for(int i = 0; i < src_file->line_count; ++i)
+    printf("%d:\t\"%s\"\n", i+1, src_file->lines[i]);
 }
 
 void free_MIPS_Source_File(MIPS_Source_File* src_file) {

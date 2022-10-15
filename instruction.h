@@ -1,19 +1,20 @@
 #ifndef MIPS_INSTRUCTION
 #define MIPS_INSTRUCTION
 
-#include "mips.h"
+#include <stdbool.h>
+#include <stdio.h>
 
 #define OP_LENGTH 8
 #define ARG_LENGTH 32
 
 typedef struct {
-  char* op;
+  char op[OP_LENGTH];
+  char arg1[ARG_LENGTH];
+  char arg2[ARG_LENGTH];
+  char arg3[ARG_LENGTH];
   int _op;
-  char* arg1;
   int _arg1;
-  char* arg2;
   int _arg2;
-  char* arg3;
   int _arg3;
 } MIPS_Instruction;
 

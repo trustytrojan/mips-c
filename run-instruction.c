@@ -1,4 +1,4 @@
-#include "mips-c.h"
+#include "mips.h"
 
 void run_instruction(int R[32], MIPS_Instruction* instr) {
   switch(instr->_op) {

@@ -9,6 +9,7 @@
 #include <string.h>
 #include <ctype.h>
 
+#include "label.h"
 #include "source-file.h"
 #include "instruction.h"
 #include "utils.h"

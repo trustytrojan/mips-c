@@ -1,5 +1,7 @@
 {
   "files.associations": {
-    "program.h": "c"
+    "program.h": "c",
+    "opcodes.h": "c",
+    "instruction.h": "c"
   }
 }

@@ -1,3 +1,6 @@
+#include <stdbool.h>
+#include <string.h>
+#include <ctype.h>
 #include "utils.h"
 
 void remove_unnecessary_chars(char* s) {
