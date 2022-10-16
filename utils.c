@@ -3,7 +3,7 @@
 #include <ctype.h>
 #include "utils.h"
 
-void remove_unnecessary_chars(char* s) {
+char* remove_unnecessary_chars(char* s) {
   const int len = strlen(s);
   char _s[len];
   int _i = 0;
@@ -12,15 +12,18 @@ void remove_unnecessary_chars(char* s) {
       case ',':
       case '$':
       case ':':
+      case '.':
+      case '"':
         break;
       default:
         _s[_i++] = s[i];
     }
   _s[_i+1] = '\0';
   strcpy(s, _s);
+  return s;
 }
 
-void trim_whitespace(char* s) {
+char* trim_whitespace(char* s) {
   int len = strlen(s);
   bool leading_whitespace = isspace(s[0]);
   bool trailing_whitespace = isspace(s[len-1]);
@@ -37,6 +40,7 @@ void trim_whitespace(char* s) {
     for(i = len-1; isspace(s[i]) && i >= 0; --i);
     s[i+1] = '\0';
   }
+  return s;
 }
 
 int num_tokens(const char* s, const char* delim) {
